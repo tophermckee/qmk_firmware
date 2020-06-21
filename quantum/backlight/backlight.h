@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifndef BACKLIGHT_ON_STATE
-#    define BACKLIGHT_ON_STATE 1
+#    define BACKLIGHT_ON_STATE 0
 #endif
 
 #ifndef BREATHING_PERIOD
