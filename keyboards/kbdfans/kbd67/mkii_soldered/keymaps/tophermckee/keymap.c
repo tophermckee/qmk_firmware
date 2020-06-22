@@ -15,14 +15,16 @@
  */
 
 // Macros
-enum {
-	M_LIVBLUE,
-	M_LIVGREY,
-	M_GREEN,
-	M_SSW
-};
+
 
 #include QMK_KEYBOARD_H
+
+enum custom_keycodes {
+    M_LIVBLUE = SAFE_RANGE,
+    M_LIVGREY,
+    M_GREEN,
+    M_SSW
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_all( /* Base */
@@ -33,11 +35,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_LCTL, KC_LGUI, KC_LALT,          KC_SPC,           KC_SPC,           KC_SPC,           KC_RALT, KC_RCTL,          KC_LEFT, KC_DOWN, KC_RGHT
   ),
   [1] = LAYOUT_all( /* FN */
-	KC_GRV,    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,  _______, _______, _______,
-	 RESET, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           _______, _______,
-	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           _______,          _______,
-	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           KC_MUTE, _______,
-	KC_MPRV, KC_MPLY, KC_MNXT,          _______,            M_SSW,          _______,          _______, _______,           M_GREEN, M_LIVBLUE, M_LIVGREY
+	KC_GRV,		KC_F1,		KC_F2,   	KC_F3,   	KC_F4,   	KC_F5,   	KC_F6,   	KC_F7,   	KC_F8,   	KC_F9,  	KC_F10,  	KC_F11,  	KC_F12,  	_______, 	_______, 	_______,
+	 RESET, 	_______,	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,           		_______, 	_______,
+	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,           _______,          			_______,
+	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,           		KC_MUTE,	_______,
+	KC_MPRV, 	KC_MPLY, 	KC_MNXT,	_______,				M_SSW,					_______,    			_______, 	_______,           		M_GREEN, 				M_LIVBLUE, 	M_LIVGREY
   )
 };
 
@@ -73,7 +75,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	case M_SSW:
         if (record->event.pressed) {
             // when keycode M_LIVGREY is pressed
-            SEND_STRING(SS_DOWN(X_LALT) SS_DOWN(X_LCTL) SS_DOWN(X_F11) SS_UP(X_LALT) SS_UP(X_LCTL) SS_UP(X_F11));
+            tap_code16(C(A(KC_F11)));
         } else {
             // when keycode M_LIVGREY is released
         }
