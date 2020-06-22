@@ -24,7 +24,8 @@ enum custom_keycodes {
     M_LIVGREY,
     M_GREEN,
     M_SSW,
-	M_CHROME
+	M_CHROME,
+	M_PIN
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -38,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_all( /* FN */
 	KC_GRV,		KC_F1,		KC_F2,   	KC_F3,   	KC_F4,   	KC_F5,   	KC_F6,   	KC_F7,   	KC_F8,   	KC_F9,  	KC_F10,  	KC_F11,  	KC_F12,  	_______, 	_______, 	_______,
 	RESET, 		_______,	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,    _______, 				_______,
-	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,   	_______,          					_______,
+	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,   	M_PIN,          					_______,
 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,    KC_MUTE,				_______,
 	KC_MPRV, 	KC_MPLY, 	KC_MNXT,				_______,				M_SSW,					_______,    			_______, 	M_CHROME,   M_GREEN, 	M_LIVBLUE, 				M_LIVGREY
   )
@@ -66,10 +67,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 	case M_CHROME:
         if (record->event.pressed) {
-            // when keycode M_LIVBLUE is pressed
+            // when keycode M_CHROME is pressed
             SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "chrome"SS_TAP(X_ENT) SS_DELAY(100));
         } else {
-            // when keycode M_LIVBLUE is released
+            // when keycode M_CHROME is released
         }
         break;
 
@@ -79,6 +80,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             SEND_STRING("#586775");
         } else {
             // when keycode M_LIVGREY is released
+        }
+        break;
+	
+	case M_PIN:
+        if (record->event.pressed) {
+            // when keycode M_PIN is pressed
+            SEND_STRING("1423" SS_TAP(X_ENT));
+        } else {
+            // when keycode M_PIN is released
         }
         break;
 
