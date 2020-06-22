@@ -1,4 +1,5 @@
-/*
+/* Copyright 2020 hineybush
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 2 of the License, or
@@ -13,28 +14,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
+#include "h60.h"
 
-#include "quantum/color.h"
+void matrix_init_kb(void) {
+	// put your keyboard start-up code here
+	// runs once when the firmware starts up
+   	setPinOutput(C6);
+}
 
-/*
- * Older WS2812s can handle a reset time (TRST) of 50us, but recent
- * component revisions require a minimum of 280us.
- */
+bool led_update_kb(led_t led_state) {
+    if(led_update_user(led_state)) {
+        writePin(C6, !led_state.caps_lock);
+    }
+    return true;
+}
 
-#if !defined(WS2812_TRST_US)
-#    define WS2812_TRST_US 280
-#endif
-
-/* User Interface
- *
- * Input:
- *         ledarray:           An array of GRB data describing the LED colors
- *         number_of_leds:     The number of LEDs to write
- *
- * The functions will perform the following actions:
- *         - Set the data-out pin as output
- *         - Send out the LED data
- *         - Wait 50us to reset the LEDs
- */
-void ws2812_setleds(LED_TYPE *ledarray, uint16_t number_of_leds);
