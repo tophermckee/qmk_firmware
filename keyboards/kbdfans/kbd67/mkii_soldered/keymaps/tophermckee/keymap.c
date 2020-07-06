@@ -49,55 +49,43 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case M_GREEN:
         if (record->event.pressed) {
-            // when keycode M_GREEN is pressed
             SEND_STRING("#3BB54A");
         } else {
-            // when keycode M_GREEN is released
         }
         break;
 
     case M_LIVBLUE:
         if (record->event.pressed) {
-            // when keycode M_LIVBLUE is pressed
             SEND_STRING("#083452");
         } else {
-            // when keycode M_LIVBLUE is released
         }
         break;
 
 	case M_CHROME:
         if (record->event.pressed) {
-            // when keycode M_CHROME is pressed
             SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "chrome"SS_TAP(X_ENT) SS_DELAY(100));
         } else {
-            // when keycode M_CHROME is released
         }
         break;
 
 	case M_LIVGREY:
         if (record->event.pressed) {
-            // when keycode M_LIVGREY is pressed
             SEND_STRING("#586775");
         } else {
-            // when keycode M_LIVGREY is released
         }
         break;
 	
 	case M_PIN:
         if (record->event.pressed) {
-            // when keycode M_PIN is pressed
             SEND_STRING("1423" SS_TAP(X_ENT));
         } else {
-            // when keycode M_PIN is released
         }
         break;
 
 	case M_SSW:
         if (record->event.pressed) {
-            // when keycode M_LIVGREY is pressed
             tap_code16(C(A(KC_F11)));
         } else {
-            // when keycode M_LIVGREY is released
         }
         break;
     }
