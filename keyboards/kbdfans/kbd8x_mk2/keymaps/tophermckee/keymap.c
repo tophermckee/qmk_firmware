@@ -22,7 +22,7 @@ enum custom_keycodes {
     M_SSW,
 	M_CHROME,
 	M_PIN,
-	TD_FN_CAPS
+	M_GHUB
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KC_TRNS,           KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, \
 	KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,          KC_TRNS,  KC_TRNS, KC_TRNS, \
-	KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,          KC_TRNS,          KC_TRNS,  KC_TRNS,  KC_TRNS, \
+	KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,          KC_TRNS,          KC_TRNS,  KC_TRNS,  M_GHUB, \
 	KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,                   KC_TRNS,                                      \
 	KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,          KC_TRNS, KC_TRNS,                    KC_TRNS,            \
 	KC_TRNS, KC_TRNS,  KC_TRNS,                                  KC_TRNS,                                       KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS  \
@@ -79,6 +79,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	case M_PIN:
         if (record->event.pressed) {
             SEND_STRING("1423" SS_TAP(X_ENT));
+        } else {
+        }
+        break;
+        
+    case M_GHUB:
+        if (record->event.pressed) {
+            SEND_STRING("fo*gren2dauk6DEEG" SS_TAP(X_ENT));
         } else {
         }
         break;
