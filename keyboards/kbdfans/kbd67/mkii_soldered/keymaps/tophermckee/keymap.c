@@ -26,7 +26,8 @@ enum custom_keycodes {
     M_SSW,
 	M_CHROME,
 	M_PIN,
-    M_GHUB
+    M_GHUB,
+    M_TERM
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -41,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_GRV,		KC_F1,		KC_F2,   	KC_F3,   	KC_F4,   	KC_F5,   	KC_F6,   	KC_F7,   	KC_F8,   	KC_F9,  	KC_F10,  	KC_F11,  	KC_F12,  	_______, 	_______, 	_______,
 	RESET, 		_______,	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,    _______, 				_______,
 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,   	M_PIN,          					M_GHUB,
-	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,    KC_MUTE,				_______,
+	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	M_TERM,     KC_MUTE,				_______,
 	KC_MPRV, 	KC_MPLY, 	KC_MNXT,				_______,				M_SSW,					_______,    			_______, 	M_CHROME,   M_GREEN, 	M_LIVBLUE, 				M_LIVGREY
   )
 };
@@ -84,11 +85,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
 
     case M_GHUB:
-    if (record->event.pressed) {
-        SEND_STRING("fo*gren2dauk6DEEG" SS_TAP(X_ENT));
-    } else {
-    }
-    break;
+        if (record->event.pressed) {
+            SEND_STRING("fo*gren2dauk6DEEG" SS_TAP(X_ENT));
+        } else {
+        }
+        break;
+
+    case M_TERM:
+        if(record->event.pressed) {
+            SEND_STRING(SS_DOWN(X_LCTL) SS_DOWN(X_LSFT) SS_DOWN(X_GRAVE) SS_UP(X_LCTL) SS_UP(X_LSFT) SS_UP(X_GRAVE));
+        } else {
+
+        }
+        break;
 
 	case M_SSW:
         if (record->event.pressed) {
