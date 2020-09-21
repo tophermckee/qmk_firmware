@@ -114,7 +114,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         
         case M_GCMMT:
             if (record->event.pressed) {
-                SEND_STRING("git commit -m "" -a");
+                SEND_STRING("git commit -m \"\" -a" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
             } else {
             }
             break;
