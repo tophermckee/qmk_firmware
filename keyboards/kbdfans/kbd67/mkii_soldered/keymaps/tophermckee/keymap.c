@@ -27,7 +27,9 @@ enum custom_keycodes {
     M_CHROME,
     M_PIN,
     M_GHUB,
-    M_TERM
+    M_TERM,
+    M_GCMMT,
+    M_GPUSH
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -44,10 +46,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
     [1] = LAYOUT_all( /* FN */
             _______,		KC_F1,		KC_F2,   	KC_F3,   	KC_F4,   	KC_F5,   	KC_F6,   	KC_F7,   	KC_F8,   	KC_F9,  	KC_F10,  	KC_F11,  	KC_F12,  	_______, 	_______, 	_______,
-            RESET, 		_______,	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,    _______, 				_______,
+            RESET, 		_______,	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	M_GPUSH, 	_______, 	_______,    _______, 				_______,
             _______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______,   	M_PIN,          					M_GHUB,
-            _______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	M_TERM,     KC_MUTE,				_______,
-            KC_MPRV, 	KC_MPLY, 	KC_MNXT,				_______,				M_SSW,					_______,    			_______, 	M_CHROME,   M_GREEN, 	M_LIVBLUE, 				M_LIVGREY
+            _______, 	_______, 	_______, 	_______, 	M_GCMMT, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	_______, 	M_TERM,     KC_MUTE,				_______,
+            KC_MPRV, 	KC_MPLY, 	KC_MNXT,				_______,				M_SSW,					_______,    			_______, 	_______,   M_GREEN, 	M_LIVBLUE, 				M_LIVGREY
             )
 };
 
@@ -106,6 +108,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case M_SSW:
             if (record->event.pressed) {
                 tap_code16(C(A(KC_F11)));
+            } else {
+            }
+            break;
+        
+        case M_GCMMT:
+            if (record->event.pressed) {
+                SEND_STRING("git commit -m "" -a");
+            } else {
+            }
+            break;
+
+        case M_GPUSH:
+            if (record->event.pressed) {
+                SEND_STRING("git push origin master");
             } else {
             }
             break;
