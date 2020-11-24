@@ -22,7 +22,6 @@ enum custom_keycodes {
     M_SSW,
     M_PIN,
     M_GHUB,
-    M_TERM,
     M_GCMMT,
     M_GPUSH
 };
@@ -35,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,          KC_BSPC,          KC_MPRV,  KC_MPLY,  KC_MNXT, \
 	KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,                   KC_ENT,                                      \
 	KC_LSFT, KC_BSLS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RSFT, MO(1),                    KC_UP,            \
-	KC_LCTL, KC_LGUI, KC_LALT,                           KC_SPC,                                       KC_RALT, KC_RGUI, KC_APP,  KC_RCTL,          KC_LEFT, KC_DOWN, KC_RGHT  \
+	KC_LCTL, KC_LGUI, KC_LALT,                           KC_SPC,                                       KC_RALT, KC_RALT, KC_APP,  KC_RCTL,          KC_LEFT, KC_DOWN, KC_RGHT  \
   ),
     [1] = LAYOUT( /* FN */
         KC_TRNS,           KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,        KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,       KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, \
@@ -84,14 +83,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
-        case M_TERM:
-            if(record->event.pressed) {
-                SEND_STRING(SS_DOWN(X_LCTL) SS_DOWN(X_LSFT) SS_DOWN(X_GRAVE) SS_UP(X_LCTL) SS_UP(X_LSFT) SS_UP(X_GRAVE));
-            } else {
-
-            }
-            break;
-
         case M_SSW:
             if (record->event.pressed) {
                 tap_code16(C(A(KC_F11)));
@@ -108,7 +99,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case M_GPUSH:
             if (record->event.pressed) {
-                SEND_STRING("git push origin master");
+                SEND_STRING("git push origin master" SS_TAP(X_ENT));
             } else {
             }
             break;
