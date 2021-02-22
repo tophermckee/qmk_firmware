@@ -38,10 +38,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_LCTL, KC_LGUI, KC_LGUI,                           KC_SPC,                                       KC_RALT, KC_RALT, KC_APP,  KC_RCTL,          KC_LEFT, KC_DOWN, KC_RGHT  \
   ),
     [1] = LAYOUT( /* FN */
-        RGB_TOG,           KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,        KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,       KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, \
+        M_ARSE,           RGB_TOG,   KC_TRNS,   KC_TRNS,   KC_TRNS,        KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,       KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, \
         RESET  , KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,           KC_TRNS,  KC_TRNS, KC_TRNS, \
         KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,    RESET,    KC_TRNS,    M_LIVGREY,    KC_TRNS,    KC_TRNS,    KC_TRNS,    M_GPUSH,    KC_TRNS, KC_TRNS,          KC_TRNS,          KC_TRNS,  KC_TRNS,  KC_TRNS, \
-        KC_TRNS, M_ARSE,    KC_TRNS,    KC_TRNS,    KC_TRNS,    M_GREEN,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,                   M_PIN,                                      \
+        KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    M_GREEN,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,                   M_PIN,                                      \
         KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,    M_GCMMT,    KC_TRNS,    M_LIVBLUE,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS,          M_GHUB, KC_TRNS,                    KC_TRNS,            \
         KC_TRNS, KC_TRNS, KC_TRNS,                           M_SSW,                                       KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS  \
     )
