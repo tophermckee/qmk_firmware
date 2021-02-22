@@ -6,4 +6,4 @@
 
 Make example for this keyboard (after setting up your build environment):
 
-    make kbdfans/kbd8x_mk2:tophermckee
+    make kbdfans/kbd8x_mk2:tophermckee:flash
