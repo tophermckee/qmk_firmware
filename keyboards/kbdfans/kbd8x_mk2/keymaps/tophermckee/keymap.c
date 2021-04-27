@@ -24,7 +24,10 @@ enum custom_keycodes {
     M_GHUB,
     M_GCMMT,
     M_GPUSH,
-    M_ARSE
+    M_ARSE,
+    M_ENRL,
+    M_ENRP,
+    M_COLP
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -38,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_LCTL, KC_LGUI, KC_LGUI,                           KC_SPC,                                       KC_LGUI, KC_LGUI, KC_APP,  KC_RALT,          KC_LEFT, KC_DOWN, KC_RGHT  \
   ),
     [1] = LAYOUT( /* FN */
-        M_ARSE,           RGB_TOG,   KC_TRNS,   KC_TRNS,   KC_TRNS,        KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,       KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, \
+        M_ARSE,           RGB_TOG,   KC_TRNS,   KC_TRNS,   KC_TRNS,        M_COLP,   M_ENRL,   M_ENRP,   KC_TRNS,       KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, \
         RESET  , KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,           KC_TRNS,  KC_TRNS, KC_TRNS, \
         KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,    RESET,    KC_TRNS,    M_LIVGREY,    KC_TRNS,    KC_TRNS,    KC_TRNS,    M_GPUSH,    KC_TRNS, KC_TRNS,          KC_TRNS,          KC_TRNS,  KC_TRNS,  KC_TRNS, \
         KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    M_GREEN,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,                   M_PIN,                                      \
@@ -107,6 +110,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case M_ARSE:
             if (record->event.pressed) {
                 SEND_STRING("Arsenal1423!" SS_TAP(X_ENT));
+            } else {
+            }
+            break;
+        case M_ENRL:
+            if (record->event.pressed) {
+                SEND_STRING("livingstonstudent@livingstoncollegiate.org"  SS_TAP(X_ENT));
+            } else {
+            }
+            break;
+        case M_ENRP:
+            if (record->event.pressed) {
+                SEND_STRING("wolves16"  SS_TAP(X_ENT));
+            } else {
+            }
+            break;
+        case M_COLP:
+            if (record->event.pressed) {
+                SEND_STRING("collegiateacademies"  SS_TAP(X_ENT));
             } else {
             }
             break;
