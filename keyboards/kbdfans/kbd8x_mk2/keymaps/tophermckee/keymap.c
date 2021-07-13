@@ -103,7 +103,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case M_GPUSH:
             if (record->event.pressed) {
-                SEND_STRING("git push origin master" SS_TAP(X_ENT));
+                SEND_STRING("git push origin main" SS_TAP(X_ENT));
             } else {
             }
             break;
