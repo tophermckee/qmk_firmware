@@ -25,10 +25,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	// Fn1 Layer
 	[1] = LAYOUT_all(
 		KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  BR_DEC,  BR_INC, M_ARSE,
-		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RESET,   KC_TRNS, M_LIVGREY,KC_TRNS,KC_TRNS, KC_TRNS, M_GPUSH, KC_TRNS, KC_TRNS, KC_TRNS,          BR_INC,
+		KC_TRNS, KC_PSCR, KC_SLCK, KC_TRNS, RESET,   KC_TRNS, M_LIVGREY,KC_TRNS,KC_TRNS, KC_TRNS, M_GPUSH, KC_TRNS, KC_TRNS, KC_TRNS,          BR_INC,
 		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, M_GREEN, KC_TRNS, KC_TRNS, KC_TRNS, BR_DEC,  KC_TRNS, KC_TRNS, M_PIN  ,                   BR_DEC,
 		KC_TRNS, KC_TRNS, KC_TRNS, M_GCMMT, KC_TRNS, M_LIVBLUE,KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS,
-		KC_PSCR, KC_SLCK, KC_TRNS,                            KC_TRNS,                                     KC_MUTE,            KC_MPRV, KC_MPLY, KC_MNXT),
+		KC_TRNS, KC_TRNS, KC_TRNS,                            KC_TRNS,                                     KC_MUTE,            KC_MPRV, KC_MPLY, KC_MNXT),
 /*
 	// Fn2 Layer
 	[2] = LAYOUT_all(
