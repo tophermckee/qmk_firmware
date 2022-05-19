@@ -1,4 +1,5 @@
-/* Copyright 2021 mtei
+/* Copyright 2021 Mss Studio
+ * Copyright 2022 HorrorTroll <https://github.com/HorrorTroll>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,18 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include QMK_KEYBOARD_H
+#pragma once
 
-void matrix_output_unselect_delay(uint8_t line, bool key_pressed) {
-     /* If none of the keys are pressed,
-      *  there is no need to wait for time for the next line. */
-     if (key_pressed) {
-#    ifdef MATRIX_IO_DELAY
-#        if MATRIX_IO_DELAY > 0
-         wait_us(MATRIX_IO_DELAY);
-#        endif
-#    else
-         wait_us(30);
-#    endif
-     }
-}
+#define DYNAMIC_KEYMAP_LAYER_COUNT 2
